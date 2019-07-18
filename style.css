@@ -1,0 +1,20 @@
+:root {
+  --framify-width: 500px;
+}
+
+.framify-container {
+  display: flex;
+  margin: 0 auto;
+  max-width: var(--framify-width);
+  overflow-x: scroll;
+}
+
+.framify-container__element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.framify-container__element img {
+  max-width: var(--framify-width);
+}
