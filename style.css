@@ -1,11 +1,29 @@
 .framify-container {
   margin: 3rem auto;
-  overflow-x: hidden;
+  width: 300px;
+  position: relative;
+}
+
+.framify-elements-wrapper {
+  overflow-x: scroll;
   display: flex;
   align-items: center;
-  width: 300px;
 }
 
 .framify-element img {
   width: 300px;
+}
+
+.framify-buttons {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: 0 10%;
+}
+
+.framify-buttons * {
+  height: 16px;
 }
