@@ -5,7 +5,7 @@
 }
 
 .framify-elements-wrapper {
-  overflow-x: scroll;
+  overflow-x: hidden;
   display: flex;
   align-items: center;
 }
