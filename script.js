@@ -22,12 +22,16 @@ previousButton.addEventListener("click", () =>
 /* Event Handlers */
 
 function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
-  let scrolled = 0;
-  const intervalID = window.setInterval(function() {
-    elementToScroll.scrollLeft += scrollVelocity;
-    scrolled += Math.abs(scrollVelocity);
-    if (scrolled >= scrollMagnitude) {
-      window.clearInterval(intervalID);
-    }
-  }, 10);
+  if (elementToScroll.scrollLeft == framifyElements.length * width - width) {
+    elementToScroll.scrollLeft = 0;
+  } else {
+    let scrolled = 0;
+    const intervalID = window.setInterval(function() {
+      elementToScroll.scrollLeft += scrollVelocity;
+      scrolled += Math.abs(scrollVelocity);
+      if (scrolled >= scrollMagnitude) {
+        window.clearInterval(intervalID);
+      }
+    }, 10);
+  }
 }
