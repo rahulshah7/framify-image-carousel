@@ -22,6 +22,12 @@ nextButton.addEventListener("click", () => {
 });
 
 previousButton.addEventListener("click", () => {
+  currentElementIndex = mod(currentElementIndex - 1, elementCount);
+  elementsWrapper.insertBefore(
+    elements[currentElementIndex],
+    elementsWrapper.firstChild
+  );
+  elementsWrapper.scrollLeft += width;
   scrollElement(elementsWrapper, -scrollSpeed, width);
 });
 
@@ -37,3 +43,13 @@ function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
     }
   }, 10);
 }
+
+/* Helper Functions */
+
+/**
+ * Computes x mod n
+ * x arbitrary integer
+ * n natural number
+ * Source: https://maurobringolf.ch/2017/12/a-neat-trick-to-compute-modulo-of-negative-numbers/
+ */
+const mod = (x, n) => ((x % n) + n) % n;
