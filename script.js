@@ -1,37 +1,39 @@
 const container = document.querySelector(".framify-container");
 const nextButton = document.querySelector(".framify-button-next");
 const previousButton = document.querySelector(".framify-button-previous");
-const framifyElementsWrapper = document.querySelector(
-  ".framify-elements-wrapper"
-);
-const framifyElements = document.querySelectorAll(".framify-element");
+const elementsWrapper = document.querySelector(".framify-elements-wrapper");
+const elements = document.querySelectorAll(".framify-element");
 
 const width = container.clientWidth;
 const scrollSpeed = parseInt(container.getAttribute("data-scroll-speed"));
+const elementCount = elements.length;
 
 /* Event Listeners */
 
-nextButton.addEventListener("click", () =>
-  scrollElement(framifyElementsWrapper, scrollSpeed, width)
-);
+let currentElementIndex = 0;
 
-previousButton.addEventListener("click", () =>
-  scrollElement(framifyElementsWrapper, -scrollSpeed, width)
-);
+nextButton.addEventListener("click", () => {
+  scrollElement(elementsWrapper, scrollSpeed, width);
+  setTimeout(() => {
+    elementsWrapper.appendChild(elements[currentElementIndex]);
+    currentElementIndex = (currentElementIndex + 1) % elementCount;
+    elementsWrapper.scrollLeft -= width;
+  }, width);
+});
+
+previousButton.addEventListener("click", () => {
+  scrollElement(elementsWrapper, -scrollSpeed, width);
+});
 
 /* Event Handlers */
 
 function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
-  if (elementToScroll.scrollLeft == framifyElements.length * width - width) {
-    elementToScroll.scrollLeft = 0;
-  } else {
-    let scrolled = 0;
-    const intervalID = window.setInterval(function() {
-      elementToScroll.scrollLeft += scrollVelocity;
-      scrolled += Math.abs(scrollVelocity);
-      if (scrolled >= scrollMagnitude) {
-        window.clearInterval(intervalID);
-      }
-    }, 10);
-  }
+  let scrolled = 0;
+  const intervalID = window.setInterval(function() {
+    elementToScroll.scrollLeft += scrollVelocity;
+    scrolled += Math.abs(scrollVelocity);
+    if (scrolled >= scrollMagnitude) {
+      window.clearInterval(intervalID);
+    }
+  }, 10);
 }
