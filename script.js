@@ -7,15 +7,16 @@ const previousButton = document.querySelector(".framify-button-previous");
 const elementsWrapper = document.querySelector(".framify-elements-wrapper");
 const elements = document.querySelectorAll(".framify-element");
 
-let width = container.clientWidth;
-const scrollSpeed = parseInt(container.getAttribute("data-scroll-speed"));
+let width = getElementWidth(container);
+let scrollSpeed = setScrollSpeed(width);
 const displayInterval = parseInt(container.getAttribute("data-interval"));
 const elementCount = elements.length;
 
 /* Event Listeners */
 
 window.addEventListener("resize", () => {
-  width = container.clientWidth;
+  width = getElementWidth(container);
+  setScrollSpeed(width);
   elementsWrapper.scrollLeft = 0;
 });
 
@@ -88,3 +89,11 @@ function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
  * Source: https://maurobringolf.ch/2017/12/a-neat-trick-to-compute-modulo-of-negative-numbers/
  */
 const mod = (x, n) => ((x % n) + n) % n;
+
+function getElementWidth(element) {
+  return element.clientWidth;
+}
+
+function setScrollSpeed(width) {
+  return width > 700 ? 20 : 10;
+}
