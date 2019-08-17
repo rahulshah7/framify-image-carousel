@@ -7,12 +7,17 @@ const previousButton = document.querySelector(".framify-button-previous");
 const elementsWrapper = document.querySelector(".framify-elements-wrapper");
 const elements = document.querySelectorAll(".framify-element");
 
-const width = container.clientWidth;
+let width = container.clientWidth;
 const scrollSpeed = parseInt(container.getAttribute("data-scroll-speed"));
 const displayInterval = parseInt(container.getAttribute("data-interval"));
 const elementCount = elements.length;
 
 /* Event Listeners */
+
+window.addEventListener("resize", () => {
+  width = container.clientWidth;
+  elementsWrapper.scrollLeft = 0;
+});
 
 let currentElementIndex = 0;
 
