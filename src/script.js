@@ -95,5 +95,5 @@ function getElementWidth(element) {
 }
 
 function setScrollSpeed(width) {
-  return width > 700 ? 20 : 10;
+  return 20;
 }
