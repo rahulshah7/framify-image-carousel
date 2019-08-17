@@ -16,12 +16,17 @@ const elementCount = elements.length;
 let currentElementIndex = 0;
 
 let displayIntervalID;
-playButton.addEventListener(
-  "click",
-  () => (displayIntervalID = setInterval(handleNextElement, displayInterval))
-);
+playButton.addEventListener("click", () => {
+  displayIntervalID = setInterval(handleNextElement, displayInterval);
+  playButton.classList.add("framify-button-hidden");
+  pauseButton.classList.remove("framify-button-hidden");
+});
 
-pauseButton.addEventListener("click", () => clearInterval(displayIntervalID));
+pauseButton.addEventListener("click", () => {
+  clearInterval(displayIntervalID);
+  playButton.classList.remove("framify-button-hidden");
+  pauseButton.classList.add("framify-button-hidden");
+});
 
 nextButton.addEventListener("click", handleNextElement);
 previousButton.addEventListener("click", handlePreviousElement);
