@@ -31,6 +31,24 @@
   width: 10%;
   padding: 0 0 10% 0;
   border: none;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 10%;
+}
+
+.framify-buttons img {
+  padding: 10% 0;
+  width: 80%;
+  filter: invert(20%);
+}
+
+.framify-button-play img {
+  padding-left: 5%;
+}
+
+.framify-button-next img,
+.framify-button-previous img {
+  padding-left: 10%;
 }
 
 .framify-button-hidden {
