@@ -5,7 +5,7 @@
   "main": "script.js",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html && git subtree push --prefix dist origin master",
+    "build": "parcel build src/index.html --public-url ./ && git subtree push --prefix dist origin master",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
