@@ -12,16 +12,21 @@ const elementCount = elements.length;
 
 let currentElementIndex = 0;
 
-nextButton.addEventListener("click", () => {
+nextButton.addEventListener("click", handleNextElement);
+previousButton.addEventListener("click", handlePreviousElement);
+
+/* Event Handlers */
+
+function handleNextElement() {
   scrollElement(elementsWrapper, scrollSpeed, width);
   setTimeout(() => {
     elementsWrapper.appendChild(elements[currentElementIndex]);
     currentElementIndex = (currentElementIndex + 1) % elementCount;
     elementsWrapper.scrollLeft -= width;
   }, width);
-});
+}
 
-previousButton.addEventListener("click", () => {
+function handlePreviousElement() {
   currentElementIndex = mod(currentElementIndex - 1, elementCount);
   elementsWrapper.insertBefore(
     elements[currentElementIndex],
@@ -29,9 +34,7 @@ previousButton.addEventListener("click", () => {
   );
   elementsWrapper.scrollLeft += width;
   scrollElement(elementsWrapper, -scrollSpeed, width);
-});
-
-/* Event Handlers */
+}
 
 function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
   let scrolled = 0;
