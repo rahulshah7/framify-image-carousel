@@ -42,6 +42,10 @@
   filter: invert(20%);
 }
 
+.framify-buttons img:hover {
+  filter: invert(90%);
+}
+
 .framify-button-play img {
   padding-left: 5%;
 }
