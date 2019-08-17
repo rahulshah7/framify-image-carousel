@@ -26,6 +26,9 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.framify-buttons * {
-  height: 16px;
+.framify-buttons button {
+  height: 0;
+  width: 10%;
+  padding: 0 0 10% 0;
+  border: none;
 }
