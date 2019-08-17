@@ -23,7 +23,7 @@
   align-items: center;
   width: 80%;
   padding: 0 10%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
 }
 
 .framify-buttons button {
