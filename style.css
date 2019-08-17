@@ -14,7 +14,7 @@
   align-items: center;
 }
 
-.framify-buttons {
+.framify-buttons-wrapper {
   position: absolute;
   top: 80%;
   height: 20%;
@@ -24,9 +24,11 @@
   width: 80%;
   padding: 0 10%;
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
 }
 
-.framify-buttons button {
+.framify-buttons-wrapper button {
   height: 0;
   width: 10%;
   padding: 0 0 10% 0;
@@ -36,13 +38,13 @@
   border-radius: 10%;
 }
 
-.framify-buttons img {
+.framify-buttons-wrapper img {
   padding: 10% 0;
   width: 80%;
   filter: invert(20%);
 }
 
-.framify-buttons img:hover {
+.framify-buttons-wrapper img:hover {
   filter: invert(90%);
 }
 

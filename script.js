@@ -1,4 +1,5 @@
 const container = document.querySelector(".framify-container");
+const buttonsWrapper = document.querySelector(".framify-buttons-wrapper");
 const playButton = document.querySelector(".framify-button-play");
 const pauseButton = document.querySelector(".framify-button-pause");
 const nextButton = document.querySelector(".framify-button-next");
@@ -30,6 +31,16 @@ pauseButton.addEventListener("click", () => {
 
 nextButton.addEventListener("click", handleNextElement);
 previousButton.addEventListener("click", handlePreviousElement);
+
+container.addEventListener(
+  "mouseover",
+  () => (buttonsWrapper.style.opacity = 1)
+);
+
+container.addEventListener(
+  "mouseout",
+  () => (buttonsWrapper.style.opacity = 0)
+);
 
 /* Event Handlers */
 
