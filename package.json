@@ -1,0 +1,22 @@
+{
+  "name": "framify-image-carousel",
+  "version": "1.0.0",
+  "description": "HTML, CSS and JS image carousel widget",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rahulshah7/framify-image-carousel.git"
+  },
+  "author": "Rahul Shah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rahulshah7/framify-image-carousel/issues"
+  },
+  "homepage": "https://github.com/rahulshah7/framify-image-carousel#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.3"
+  }
+}
