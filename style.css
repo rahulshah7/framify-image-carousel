@@ -1,11 +1,22 @@
+/* Sizing and Positioning */
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
 .framify-container {
-  margin: 3rem auto;
-  width: 600px;
-  position: relative;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .framify-element img {
-  width: 600px;
+  width: 800px;
+}
+/* Styling */
+
+.framify-container {
+  position: relative;
 }
 
 .framify-elements-wrapper {
