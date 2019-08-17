@@ -20,8 +20,6 @@ window.addEventListener("resize", () => {
   elementsWrapper.scrollLeft = 0;
 });
 
-let currentElementIndex = 0;
-
 let displayIntervalID;
 playButton.addEventListener("click", () => {
   displayIntervalID = setInterval(handleNextElement, displayInterval);
@@ -49,6 +47,8 @@ container.addEventListener(
 );
 
 /* Event Handlers */
+
+let currentElementIndex = 0;
 
 function handleNextElement() {
   scrollElement(elementsWrapper, scrollSpeed, width);
