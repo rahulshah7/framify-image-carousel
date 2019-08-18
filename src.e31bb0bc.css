@@ -1,0 +1,138 @@
+/* Sizing and Positioning */
+
+.container {
+  margin: 0 auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
+}
+
+.framify-container {
+  width: 320px;
+}
+
+.framify-element img {
+  width: 320px;
+}
+
+@media (min-width: 375px) {
+  .framify-container {
+    width: 360px;
+  }
+
+  .framify-element img {
+    width: 360px;
+  }
+}
+
+@media (min-width: 400px) {
+  .framify-container {
+    width: 380px;
+  }
+
+  .framify-element img {
+    width: 380px;
+  }
+}
+
+@media (min-width: 576px) {
+  .framify-container {
+    width: 560px;
+  }
+
+  .framify-element img {
+    width: 560px;
+  }
+}
+
+@media (min-width: 768px) {
+  .framify-container {
+    width: 700px;
+  }
+
+  .framify-element img {
+    width: 700px;
+  }
+}
+
+@media (min-width: 992px) {
+  .framify-container {
+    width: 900px;
+  }
+
+  .framify-element img {
+    width: 900px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .framify-container {
+    width: 1000px;
+  }
+
+  .framify-element img {
+    width: 1000px;
+  }
+}
+
+/* Styling */
+
+.framify-container {
+  position: relative;
+}
+
+.framify-elements-wrapper {
+  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.framify-buttons-wrapper {
+  position: absolute;
+  top: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 0 10%;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.9));
+  transition: opacity 0.2s ease-in;
+  opacity: 0;
+}
+
+.framify-buttons-wrapper button {
+  height: 0;
+  width: 10%;
+  padding: 0 0 10% 0;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  outline: none;
+  border-radius: 10%;
+}
+
+.framify-buttons-wrapper img {
+  padding: 10% 0;
+  width: 80%;
+  filter: invert(20%);
+}
+
+.framify-buttons-wrapper img:hover {
+  filter: invert(90%);
+}
+
+.framify-button-play img {
+  padding-left: 5%;
+}
+
+.framify-button-next img,
+.framify-button-previous img {
+  padding-left: 10%;
+}
+
+.framify-button-hidden {
+  display: none;
+}
+
+
+/*# sourceMappingURL=/src.e31bb0bc.css.map */
