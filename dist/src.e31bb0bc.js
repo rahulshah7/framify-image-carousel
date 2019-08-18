@@ -140,10 +140,12 @@ var _default = function _default() {
   var elementCount = elements.length;
 
   window.onload = function () {
+    elementsWrapper.scrollLeft = 0;
+
     if (container.hasAttribute("data-playback")) {
       setTimeout(function () {
         return playButton.click();
-      }, displayInterval);
+      }, 50);
     }
   };
   /* Event Listeners */
@@ -338,7 +340,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36819" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43239" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
