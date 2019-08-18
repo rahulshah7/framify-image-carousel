@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "parcel src/index.html",
     "build": "parcel build src/index.html --public-url ./",
-    "deploy": "git reset && git add dist/ && git commit -m 'Build for deployment' && git subtree push --prefix dist origin master"
+    "deploy": "npm run build && git reset && git add dist/ && git commit -m 'Build for deployment' && git subtree push --prefix dist origin master"
   },
   "repository": {
     "type": "git",
