@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"framify.js":[function(require,module,exports) {
+})({"index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -302,17 +302,17 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"framify.js":[function(require,module,exports) {
 "use strict";
 
-var _framify = _interopRequireDefault(require("./framify"));
+var _ = _interopRequireDefault(require("."));
 
 require("./framify.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _framify.default)();
-},{"./framify":"framify.js","./framify.css":"framify.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+(0, _.default)();
+},{".":"index.js","./framify.css":"framify.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -515,5 +515,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
-//# sourceMappingURL=/src.e31bb0bc.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","framify.js"], null)
+//# sourceMappingURL=/framify.cf8e843e.js.map
