@@ -15,7 +15,7 @@ export default () => {
 
   window.onload = function() {
     if (container.hasAttribute("data-playback")) {
-      setTimeout(() => playButton.click(), displayInterval);
+      setTimeout(() => playButton.click(), 250);
     }
   };
 
