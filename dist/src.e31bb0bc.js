@@ -117,7 +117,118 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+})({"framify.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default() {
+  var container = document.querySelector(".framify-container");
+  var buttonsWrapper = document.querySelector(".framify-buttons-wrapper");
+  var playButton = document.querySelector(".framify-button-play");
+  var pauseButton = document.querySelector(".framify-button-pause");
+  var nextButton = document.querySelector(".framify-button-next");
+  var previousButton = document.querySelector(".framify-button-previous");
+  var elementsWrapper = document.querySelector(".framify-elements-wrapper");
+  var elements = document.querySelectorAll(".framify-element");
+  var width = getElementWidth(container);
+  var scrollSpeed = setScrollSpeed(width);
+  var displayInterval = parseInt(container.getAttribute("data-interval"));
+  var elementCount = elements.length;
+
+  window.onload = function () {
+    if (container.hasAttribute("data-playback")) {
+      setTimeout(function () {
+        return playButton.click();
+      }, displayInterval);
+    }
+  };
+  /* Event Listeners */
+
+
+  window.addEventListener("resize", function () {
+    width = getElementWidth(container);
+    setScrollSpeed(width);
+    elementsWrapper.scrollLeft = 0;
+  });
+  var displayIntervalID;
+  playButton.addEventListener("click", function () {
+    displayIntervalID = setInterval(handleNextElement, displayInterval);
+    playButton.classList.add("framify-button-hidden");
+    pauseButton.classList.remove("framify-button-hidden");
+  });
+  pauseButton.addEventListener("click", function () {
+    clearInterval(displayIntervalID);
+    playButton.classList.remove("framify-button-hidden");
+    pauseButton.classList.add("framify-button-hidden");
+  });
+  nextButton.addEventListener("click", handleNextElement);
+  previousButton.addEventListener("click", handlePreviousElement);
+  container.addEventListener("mouseover", function () {
+    return buttonsWrapper.style.opacity = 1;
+  });
+  container.addEventListener("mouseout", function () {
+    return buttonsWrapper.style.opacity = 0;
+  });
+  /* Event Handlers */
+
+  var currentElementIndex = 0;
+
+  function handleNextElement() {
+    scrollElement(elementsWrapper, scrollSpeed, width);
+    setTimeout(function () {
+      elementsWrapper.appendChild(elements[currentElementIndex]);
+      currentElementIndex = (currentElementIndex + 1) % elementCount;
+      elementsWrapper.scrollLeft -= width;
+    }, width);
+  }
+
+  function handlePreviousElement() {
+    currentElementIndex = mod(currentElementIndex - 1, elementCount);
+    elementsWrapper.insertBefore(elements[currentElementIndex], elementsWrapper.firstChild);
+    elementsWrapper.scrollLeft += width;
+    scrollElement(elementsWrapper, -scrollSpeed, width);
+  }
+
+  function scrollElement(elementToScroll, scrollVelocity, scrollMagnitude) {
+    var scrolled = 0;
+    var intervalID = window.setInterval(function () {
+      elementToScroll.scrollLeft += scrollVelocity;
+      scrolled += Math.abs(scrollVelocity);
+
+      if (scrolled >= scrollMagnitude) {
+        window.clearInterval(intervalID);
+      }
+    }, 10);
+  }
+  /* Helper Functions */
+
+  /**
+   * Computes x mod n
+   * x arbitrary integer
+   * n natural number
+   * Source: https://maurobringolf.ch/2017/12/a-neat-trick-to-compute-modulo-of-negative-numbers/
+   */
+
+
+  var mod = function mod(x, n) {
+    return (x % n + n) % n;
+  };
+
+  function getElementWidth(element) {
+    return element.clientWidth;
+  }
+
+  function setScrollSpeed(width) {
+    return 20;
+  }
+};
+
+exports.default = _default;
+},{}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -184,12 +295,22 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"style.css":[function(require,module,exports) {
+},{"./bundle-url":"../node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"framify.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _framify = _interopRequireDefault(require("./framify"));
+
+require("./framify.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+(0, _framify.default)();
+},{"./framify":"framify.js","./framify.css":"framify.css"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -217,7 +338,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "45949" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36819" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -392,5 +513,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js"], null)
-//# sourceMappingURL=/style.e308ff8e.js.map
+},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","index.js"], null)
+//# sourceMappingURL=/src.e31bb0bc.js.map
