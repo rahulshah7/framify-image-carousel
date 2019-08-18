@@ -1,4 +1,4 @@
-/* Sizing and Positioning */
+/* Framify Sizing and Positioning */
 
 .container {
   margin: 0 auto;
@@ -75,7 +75,7 @@
   }
 }
 
-/* Styling */
+/* Framify Styling */
 
 .framify-container {
   position: relative;
