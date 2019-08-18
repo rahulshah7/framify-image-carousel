@@ -130,7 +130,16 @@ var width = getElementWidth(container);
 var scrollSpeed = setScrollSpeed(width);
 var displayInterval = parseInt(container.getAttribute("data-interval"));
 var elementCount = elements.length;
+
+window.onload = function () {
+  if (container.hasAttribute("data-playback")) {
+    setTimeout(function () {
+      return playButton.click();
+    }, displayInterval);
+  }
+};
 /* Event Listeners */
+
 
 window.addEventListener("resize", function () {
   width = getElementWidth(container);
@@ -236,7 +245,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34983" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "42897" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

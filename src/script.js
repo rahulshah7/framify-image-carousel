@@ -12,6 +12,12 @@ let scrollSpeed = setScrollSpeed(width);
 const displayInterval = parseInt(container.getAttribute("data-interval"));
 const elementCount = elements.length;
 
+window.onload = function() {
+  if (container.hasAttribute("data-playback")) {
+    setTimeout(() => playButton.click(), displayInterval);
+  }
+};
+
 /* Event Listeners */
 
 window.addEventListener("resize", () => {
