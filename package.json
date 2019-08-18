@@ -1,6 +1,6 @@
 {
   "name": "framify-image-carousel",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "HTML, CSS and JS image carousel widget",
   "main": "index.js",
   "scripts": {
