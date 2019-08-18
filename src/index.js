@@ -1,4 +1,4 @@
 import framify from "./framify";
-import "./style.css";
+import "./framify.css";
 
 framify();
