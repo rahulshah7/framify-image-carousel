@@ -16,7 +16,7 @@ export default () => {
   window.onload = function() {
     elementsWrapper.scrollLeft = 0;
     if (container.hasAttribute("data-playback")) {
-      setTimeout(() => playButton.click(), 250);
+      setTimeout(() => playButton.click(), 50);
     }
   };
 
